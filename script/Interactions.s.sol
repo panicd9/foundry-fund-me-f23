@@ -38,12 +38,10 @@ contract WithdrawFundMe is Script {
     }
 
     function run() external {
-        vm.startBroadcast();
         address mostRecentlyDeployed = DevOpsTools.get_most_recent_deployment(
             "FundMe",
             block.chainid
         );
-        vm.stopBroadcast();
         withdrawFundMe(mostRecentlyDeployed);
     }  
 }
